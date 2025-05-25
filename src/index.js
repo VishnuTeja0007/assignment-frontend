@@ -1,8 +1,13 @@
 let clients = [];
 let isShortlistClicked
 
+// API URL configuration
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5001' 
+  : 'https://assingment-backend-production-ae64.up.railway.app/'; // Replace with your actual deployed backend URL
+
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:5001/listings")
+  fetch(`${API_URL}/listings`)
     .then((response) => response.json())
     .then((data) => {
       clients = data;
